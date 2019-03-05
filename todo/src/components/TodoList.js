@@ -26,4 +26,5 @@ function mapStateToProps(state) {
         todos: state.todos
     }
 }
+
 export default connect(mapStateToProps, { deleteTodo })(TodoList);

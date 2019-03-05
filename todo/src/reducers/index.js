@@ -12,8 +12,7 @@ const reducer = (state = initialState, action) => {
             return { todos: newTodos };
 
         case COMPLETE_TODO:
-            let toggleTodos = state.todos.slice();
-            toggleTodos = toggleTodos.map(todo =>
+            let toggleTodos = state.todos.map(todo =>
                 todo.id === action.id 
                     ? { ...todo, completed: !todo.completed } 
                     : todo
@@ -21,8 +20,7 @@ const reducer = (state = initialState, action) => {
             return { todos: toggleTodos }
 
         case DELETE_TODO:
-            let deleteTodos = state.todos.slice();
-            deleteTodos = deleteTodos.filter(todo => todo.completed !== true)
+            let deleteTodos = state.todos.filter(todo => todo.completed !== true)
             return { todos: deleteTodos }
         default:
             return state;
